@@ -10,28 +10,27 @@ class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
       return (
-        <li 
-          key={book.title} 
+        <li
+          key={book.title}
           onClick={() => this.props.selectBook(book)}
           className="list-group-item">{book.title}
         </li>
       );
     });
   }
-  
+
   render() {
     return (
       <ul className="list-group col-sm-4">
         {this.renderList()}
       </ul>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
   // whatever is returned will show up as props
   // inside of bookList
-  console.log(state.books);
   return {
     books: state.books
   };
@@ -42,10 +41,15 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   // Whenever selectBook is called, the result should be passed
   // to all of the reducers
-  return bindActionCreators({ 
-    selectBook: selectBook 
+  return bindActionCreators({
+    selectBook: selectBook
   }, dispatch);
 }
+
+BookList.propTypes = {
+  books: React.PropTypes.array,
+  selectBook: React.PropTypes.func
+};
 
 // To bromote BookList from a component to a container (smart component) - it needs
 // to know about this new dispatch method, selectBook. Make it available

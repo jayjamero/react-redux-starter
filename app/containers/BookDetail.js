@@ -17,7 +17,11 @@ class BookDetail extends Component {
 function mapStateToProps(state) {
   return {
     book: state.activeBook
-  }
-} 
+  };
+}
+
+BookDetail.propTypes = {
+  book: React.PropTypes.object
+};
 
 export default connect(mapStateToProps)(BookDetail);

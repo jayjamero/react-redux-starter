@@ -16,5 +16,5 @@ export default function() {
       title: 'Eloquent Ruby',
       pages: 1
     }
-  ]
+  ];
 }

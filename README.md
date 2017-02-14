@@ -1,4 +1,4 @@
-# React Redux Starter Pack
+# Kogan Product Aggregator
 This project has the bare minimum to run a React/Redux project.
 
 `npm run build` - Build the scripts
