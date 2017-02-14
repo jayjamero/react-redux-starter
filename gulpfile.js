@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),  // Base gulp package
+const gulp = require('gulp'),  // Base gulp package
     babelify = require('babelify'), // Used to convert ES6 & JSX to ES5
     browserify = require('browserify'), // Providers "require" support, CommonJS
     notify = require('gulp-notify'), // Provides notification to both the console and Growel
@@ -23,11 +23,11 @@ var gulp = require('gulp'),  // Base gulp package
     del = require('del'),
     cleanCSS = require('gulp-clean-css');
 
-var outputPath = './dist',
+const outputPath = './dist',
     assetPath = './assets/';
 
 // Configuration for Gulp
-var config = {
+const config = {
   index: './index.html',
   indexDist: './dist/index.html',
   js: {
@@ -118,22 +118,22 @@ gulp.task('lint-watch', () => {
 });
 
 gulp.task('build-react', (done) => {
-  var args = merge(watchify.args, { debug: false }), // Merge in default watchify args with browserify arguments
+  const args = merge(watchify.args, { debug: false }), // Merge in default watchify args with browserify arguments
     bundler = browserify(config.js.src, args) // Browserify
-      .transform(babelify, {presets: ['es2015', 'react']}), // Babel tranforms
-    bundvarimer = duration('Javascript bundle time'); // timer
-  bundle(bundler).on('end', done).pipe(bundvarimer); // Run the bundle the first time (required for Watchify to kick in)
+      .transform(babelify, {presets: ['airbnb', 'es2015', 'react']}), // Babel tranforms
+    bundconstimer = duration('Javascript bundle time'); // timer
+  bundle(bundler).on('end', done).pipe(bundconstimer); // Run the bundle the first time (required for Watchify to kick in)
 });
 
 gulp.task('build-react-dev', ['lint-all'], (done) => {
-  var args = merge(watchify.args, { debug: true }), // Merge in default watchify args with browserify arguments
+  const args = merge(watchify.args, { debug: true }), // Merge in default watchify args with browserify arguments
     bundler = browserify(config.js.src, args) // Browserify
     .plugin(watchify, {ignoreWatch: ['**/node_modules/**', '**/bower_components/**']}) // Watchify to watch source file changes
     .transform(babelify, {presets: ['es2015', 'react']}), // Babel tranforms
-    bundvarimer = duration('Javascript bundle time'); // timer
+    bundconstimer = duration('Javascript bundle time'); // timer
 
-  //bundle(bundler).on('end', (done).pipe(bundvarimer);
-  bundle(bundler).on('end', done).pipe(bundvarimer); // Run the bundle the first time (required for Watchify to kick in)
+  //bundle(bundler).on('end', (done).pipe(bundconstimer);
+  bundle(bundler).on('end', done).pipe(bundconstimer); // Run the bundle the first time (required for Watchify to kick in)
 
   bundler.on('update', function() {
     bundle(bundler); // Re-run bundle on source updates
@@ -142,7 +142,7 @@ gulp.task('build-react-dev', ['lint-all'], (done) => {
 
 // Compress the compiled file
 gulp.task('compress', ['build-react'], (done) => {
-  var options = {
+  const options = {
     //preserveComments: 'license',
     unused: true,
     dead_code: true,

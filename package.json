@@ -51,9 +51,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "watchify src/index.js -o public/bundle.js -t [ babelify --presets [react es2015] ]",
+    "build": "gulp dist",
     "start": "cd dist; live-server --port=4321 --entry-file=index.html"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jayjamero/redux-react-starter.git"
+  },
+  "author": "Jay Jamero",
   "license": "ISC"
 }
