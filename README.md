@@ -10,7 +10,7 @@ This is a boiler plate React/Redux project that contains build tools for React, 
 * `gulp dist` - Create a release candidate
 
 ## TODO - The road to Isomorphism
-Aiming too be an *isomorphic* starter framework
+Aiming to be an *isomorphic* starter framework
 1. Migrate build to Webpack
 2. Create auto sprite pipeline for SASS
 3. Setup Express
