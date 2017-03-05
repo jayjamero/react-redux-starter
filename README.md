@@ -1,4 +1,4 @@
-# Redux React Starter Full
+# React Redux Starter Full
 This is a boiler plate React/Redux project that contains build tools for React, Sass and TDD based workflows. 
 
 ## Installation Steps
