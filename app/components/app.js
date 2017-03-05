@@ -21,7 +21,7 @@ const App = ({store}) => {
 };
 
 App.propTypes = {
-  store: React.PropTypes.object,
+  store: React.PropTypes.object
 };
 
 export default App;

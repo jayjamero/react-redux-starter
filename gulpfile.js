@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp'),  // Base gulp package
+    babelRegister = require('babel-core/register'),
     babelify = require('babelify'), // Used to convert ES6 & JSX to ES5
     browserify = require('browserify'), // Providers "require" support, CommonJS
     notify = require('gulp-notify'), // Provides notification to both the console and Growel
@@ -13,6 +14,7 @@ const gulp = require('gulp'),  // Base gulp package
     buffer = require('vinyl-buffer'), // Vinyl stream support
     watchify = require('watchify'), // Watchify for source changes
     merge = require('utils-merge'), // Object merge tool
+    mocha = require('gulp-mocha'), // test runner
     duration = require('gulp-duration'), // Time aspects of your gulp process
     sass = require('gulp-sass'),
     eslint = require('gulp-eslint'),
@@ -30,12 +32,13 @@ const outputPath = './dist',
 const config = {
   index: './index.html',
   indexDist: './dist/index.html',
+  testDir: './tests',
   js: {
     src: './app/index.js',
     watch: './app/*',
     outputDir: outputPath+'/js/build/',
     outputFile: 'main.js'
-  },
+  }
 };
 
 // Completes the final file outputs
@@ -70,6 +73,15 @@ const mapError = (err) => {
       + chalk.yellow(err.message));
   }
 };
+
+gulp.task('test', () => {
+  return gulp.src(`${config.testDir}/app/**/*.spec.js`)
+    .pipe(mocha({
+      reporter: 'spec',
+      compilers: babelRegister,
+      require: [`${config.testDir}/utilities/Browser.js`]
+    }));
+});
 
 gulp.task('lint-all', ['copy-index', 'copy-images', 'copy-fonts', 'sass-compile'], () => {
   // ESLint ignores files with "node_modules" paths.
@@ -118,6 +130,7 @@ gulp.task('lint-watch', () => {
 });
 
 gulp.task('build-react', (done) => {
+  process.env.NODE_ENV = 'production'; // set node environment to production
   const args = merge(watchify.args, { debug: false }), // Merge in default watchify args with browserify arguments
     bundler = browserify(config.js.src, args) // Browserify
       .transform(babelify, {presets: ['airbnb', 'es2015', 'react']}), // Babel tranforms
