@@ -1,5 +1,7 @@
 {
   "parserOptions": {
+    "ecmaVersion": 6,
+    "import/parser": "babel-eslint",
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -10,21 +12,13 @@
     "node": true,
     "es6": true
   },
-
   "globals": {
     "React": true
   },
-
-  "ecmaFeatures": {
-    "jsx": true
-  },
-
   "plugins": [
     "react"
   ],
   "settings": {
-    "ecmaVersion": 6,
-    "import/parser": "babel-eslint",
     "react": {
       // Regex for Component Factory to use, default to "createClass"
       "createClass": "createClass",
