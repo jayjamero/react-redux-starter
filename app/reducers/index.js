@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import books from './BooksReducer';
-import activeBook from './ActiveBookReducer';
+import { routerReducer } from 'react-router-redux';
+import appState from './AppStateReducer';
 
 // a function that returns a piece of the application state
 // because application can have many different pieces of state == many reducers
 const rootReducer = combineReducers({
-  books,
-  activeBook
+  appState: appState,
+  routing: routerReducer,
 });
 
 export default rootReducer;

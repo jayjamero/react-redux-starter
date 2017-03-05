@@ -8,34 +8,31 @@ import { bindActionCreators } from 'redux';
 class SimpleContainer extends Component {
   render() {
     return (
-      <h3>Simple Container</h3>
+      <h2>Simple Container</h2>
     );
   }
 }
 
 function mapStateToProps(state) {
   // whatever is returned will show up as props
-  // inside of bookList
   return {
     state
   };
 }
 
 // Anything returned from this function will end up as props
-// on the BookList Container
 function mapDispatchToProps(dispatch) {
-  // Whenever selectBook is called, the result should be passed
+  // Whenever dispatch is called the result should be passed
   // to all of the reducers
   return bindActionCreators({
   }, dispatch);
 }
 
+// Prop type declaration
 SimpleContainer.propTypes = {
-  books: React.PropTypes.array,
-  selectBook: React.PropTypes.func
 };
 
-// To bromote BookList from a component to a container (smart component) - it needs
-// to know about this new dispatch method, selectBook. Make it available
+// To promote a component to a container (smart component) - it needs
+// to know about this new dispatch method. Make it available
 // as a prop.
 export default connect(mapStateToProps, mapDispatchToProps)(SimpleContainer);

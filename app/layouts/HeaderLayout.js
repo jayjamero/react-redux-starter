@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import Navigation from '../components/Navigation';
 
 class HeaderLayout extends PureComponent {
   render() {
@@ -12,7 +13,8 @@ class HeaderLayout extends PureComponent {
       <header className="l-hd">
         <div dangerouslySetInnerHTML={{__html: BROWSE_HAPPY}}></div>
         <div className="l-pg l-pg--width">
-          <h2>Redux React Starer</h2>
+          <h1>React Redux Starer</h1>
+          <Navigation />
         </div>
       </header>
     );
