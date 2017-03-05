@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
-// Container is a react component that gets bonded with application state
-import BookList from '../containers/BookList';
-import BookDetail from '../containers/BookDetail';
+import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import HomeLayout from '../layouts/HomeLayout';
 
-export default class App extends Component {
-  render() {
-    return (<div>
-      <BookList />
-      <BookDetail />
-    </div>);
-  }
-}
+const App = () => {
+  return (
+    <ReactCSSTransitionGroup
+      component="div"
+      transitionName="l-app-root"
+      transitionAppear={true}
+      transitionAppearTimeout={500}
+      transitionEnter={true}
+      transitionEnterTimeout={500}
+      transitionLeave={false}
+    >
+      <HomeLayout />
+    </ReactCSSTransitionGroup>
+  );
+};
+
+export default App;
