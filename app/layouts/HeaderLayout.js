@@ -11,7 +11,7 @@ class HeaderLayout extends PureComponent {
     <![endif]-->`;
     return (
       <header className="l-hd">
-        <div dangerouslySetInnerHTML={{__html: BROWSE_HAPPY}}></div>
+        <div dangerouslySetInnerHTML={{ __html: BROWSE_HAPPY }} />
         <div className="l-pg l-pg--width">
           <h1>React Redux Starer</h1>
           <Navigation />

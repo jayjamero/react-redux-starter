@@ -4,8 +4,7 @@ class FooterLayout extends PureComponent {
   render() {
     return (
       <footer className="l-ft">
-        <div className="l-pg l-pg--width">
-        </div>
+        <div className="l-pg l-pg--width" />
       </footer>
     );
   }

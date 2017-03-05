@@ -22,14 +22,14 @@ class AppLayout extends PureComponent {
           <ReactCSSTransitionGroup
             component="div"
             transitionName="s-slide"
-            transitionAppear={true}
+            transitionAppear
             transitionAppearTimeout={500}
-            transitionEnter={true}
+            transitionEnter
             transitionEnterTimeout={500}
             transitionLeave={false}
           >
             {cloneElement(componentBeingRendered, {
-              key: location.pathname
+              key: location.pathname,
             })}
           </ReactCSSTransitionGroup>
         </BodyLayout>
@@ -40,7 +40,7 @@ class AppLayout extends PureComponent {
 }
 
 AppLayout.propTypes = {
-  componentBeingRendered: React.PropTypes.object,
+  componentBeingRendered: React.PropTypes.shape.isRequired,
 };
 
 function mapStateToProps(state) {

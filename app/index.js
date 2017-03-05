@@ -1,4 +1,4 @@
-/*eslint no-console: ["error", { allow: ["log"] }] */
+/* eslint no-console: ["error", { allow: ["log"] }] */
 import 'babel-polyfill'; // okay so i still got a bit of love for IE9...
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -12,7 +12,7 @@ import reducers from './reducers';
 
 import { ENABLE_DEV_TOOLS } from './constants/Globals';
 
-const middleware = [ ReduxThunk, ReduxPromise ];
+const middleware = [ReduxThunk, ReduxPromise];
 
 let devToolsExtension = f => f; // Initialise as an empty function
 
@@ -23,7 +23,7 @@ if (ENABLE_DEV_TOOLS === true) {
 
 const store = createStore(reducers, initialState, compose(
   applyMiddleware(...middleware),
-  devToolsExtension
+  devToolsExtension,
 ));
 
 // Render react when document is ready.
@@ -31,5 +31,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App store={store} />
   </Provider>,
-  document.querySelector('.app')
+  document.querySelector('.app'),
 );

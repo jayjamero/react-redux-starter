@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Container - is just a component that has direct access to state produced by redux
 // react and redux seperate libraries - react-redux melds two together
 // Only create containers out of components that care about a particular piece of state
-class SimpleContainer extends Component {
+class SimpleContainer extends PureComponent {
   render() {
     return (
       <h2>Simple Container</h2>
@@ -16,7 +16,7 @@ class SimpleContainer extends Component {
 function mapStateToProps(state) {
   // whatever is returned will show up as props
   return {
-    state
+    state,
   };
 }
 

@@ -5,7 +5,7 @@ import appState from './AppStateReducer';
 // a function that returns a piece of the application state
 // because application can have many different pieces of state == many reducers
 const rootReducer = combineReducers({
-  appState: appState,
+  appState,
   routing: routerReducer,
 });
 

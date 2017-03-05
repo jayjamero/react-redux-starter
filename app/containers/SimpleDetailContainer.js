@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class SimpleDetailContainer extends Component {
+class SimpleDetailContainer extends PureComponent {
   render() {
     return (
       <h2>Detail Container</h2>
@@ -12,7 +12,7 @@ class SimpleDetailContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    state
+    state,
   };
 }
 
