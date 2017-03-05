@@ -1,4 +1,4 @@
-/* eslint no-console: ["error", { allow: ["log"] }] */
+/* eslint no-console: ["error", { allow: ["log"] }], comma-dangle: ["error", "never"] */
 import 'babel-polyfill'; // okay so i still got a bit of love for IE9...
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -21,15 +21,13 @@ if (ENABLE_DEV_TOOLS === true) {
   devToolsExtension = window.devToolsExtension ? window.devToolsExtension() : f => f;
 }
 
-const store = createStore(reducers, initialState, compose(
-  applyMiddleware(...middleware),
-  devToolsExtension,
-));
+const middlewareComposed = compose(applyMiddleware(...middleware), devToolsExtension);
+const store = createStore(reducers, initialState, middlewareComposed);
 
 // Render react when document is ready.
 ReactDOM.render(
   <Provider store={store}>
     <App store={store} />
   </Provider>,
-  document.querySelector('.app'),
+  document.querySelector('.app')
 );
