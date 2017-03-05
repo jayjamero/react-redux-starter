@@ -13,11 +13,12 @@ import reducers from './reducers';
 import { ENABLE_DEV_TOOLS } from './constants/Globals';
 
 const middleware = [ReduxThunk, ReduxPromise];
+const consoleStyle = 'background: #555; color: #bada55';
 
 let devToolsExtension = f => f; // Initialise as an empty function
 
 if (ENABLE_DEV_TOOLS === true) {
-  console.log('_____ PROJECT HAS REDUX TOOLS ENABLED _____');
+  console.log('%c_____ PROJECT HAS REDUX TOOLS ENABLED _____', consoleStyle);
   devToolsExtension = window.devToolsExtension ? window.devToolsExtension() : f => f;
 }
 

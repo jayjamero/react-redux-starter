@@ -40,7 +40,7 @@ class AppLayout extends PureComponent {
 }
 
 AppLayout.propTypes = {
-  componentBeingRendered: React.PropTypes.shape.isRequired,
+  componentBeingRendered: React.PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
