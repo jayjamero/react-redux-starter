@@ -3,11 +3,11 @@ This is a boiler plate React/Redux project that contains build tools for React, 
 
 ## Installation Steps
 1. `npm install`
-2. `gulp serve`
+2. `npm run-script serve`
 
 ## Extras
-* `gulp test` - Runs mocha tests
-* `gulp dist` - Create a release candidate
+* `npm run-script test` - Runs mocha tests
+* `npm run-script dist` - Create a release candidate
 
 ## TODO - The road to Isomorphism
 

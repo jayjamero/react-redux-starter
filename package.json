@@ -61,8 +61,12 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
+  "bin": {
+    "gulp": "./node_modules/gulp/bin/gulp.js"
+  },
   "scripts": {
     "test": "gulp test",
+    "serve": "gulp serve",
     "build": "gulp dist",
     "start": "cd dist && live-server --port=4321 --entry-file=index.html"
   },
