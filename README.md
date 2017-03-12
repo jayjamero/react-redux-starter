@@ -3,9 +3,13 @@ This is a boiler plate React/Redux project that contains build tools for React, 
 
 ## Installation Steps
 1. `npm install`
-2. `npm run-script serve`
+2. `npn run-script build`
+
+## Preview
+1. `npm start`
 
 ## Extras
+* `npm run-script serve` - For development purposes
 * `npm run-script test` - Runs mocha tests
 * `npm run-script dist` - Create a release candidate
 
