@@ -1,4 +1,4 @@
-/* eslint one-var: ["const", "always"] */
+/* eslint one-var: [0, "always"] */
 const gulp = require('gulp'),  // Base gulp package
   babelRegister = require('babel-core/register'),
   babelify = require('babelify'), // Used to convert ES6 & JSX to ES5
