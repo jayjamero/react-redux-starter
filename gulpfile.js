@@ -108,15 +108,15 @@ gulp.task('lint-all', ['copy-index', 'copy-images', 'copy-fonts', 'sass-compile'
 gulp.task('lint-watch', () => {
   gulp.watch('./app/**/*.js')
     .on('change', file => gulp.src([file.path])
-        .pipe(eslint())
-        .pipe(eslint.result((result) => {
-          gutil.log(chalk.bold(chalk.blue('File Changed')));
-          gutil.log(chalk.magenta(`ESLinting file: ${result.filePath}`));
-          gutil.log(chalk.green(`# Messages: ${result.messages.length}`));
-          gutil.log(chalk.yellow(`# Warnings: ${result.warningCount}`));
-          gutil.log(chalk.red(`# Errors: ${result.errorCount}`));
-        }))
-        .pipe(eslint.format()));
+      .pipe(eslint())
+      .pipe(eslint.result((result) => {
+        gutil.log(chalk.bold(chalk.blue('File Changed')));
+        gutil.log(chalk.magenta(`ESLinting file: ${result.filePath}`));
+        gutil.log(chalk.green(`# Messages: ${result.messages.length}`));
+        gutil.log(chalk.yellow(`# Warnings: ${result.warningCount}`));
+        gutil.log(chalk.red(`# Errors: ${result.errorCount}`));
+      }))
+      .pipe(eslint.format()));
 });
 
 gulp.task('build-react', (done) => {
@@ -164,19 +164,23 @@ gulp.task('compress', ['build-react'], (done) => {
   done();
 });
 
-gulp.task('sass-compile', () => gulp.src(`${assetPath}/sass/**/*.scss`)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(`${outputPath}/css/`)));
+gulp.task('sass-compile', () => {
+  gulp.src(`${assetPath}/sass/**/*.scss`)
+  .pipe(sass().on('error', sass.logError))
+  .pipe(gulp.dest(`${outputPath}/css/`));
+});
 
-gulp.task('sass-minify', () => gulp.src(`${assetPath}/sass/**/*.scss`)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(cleanCSS({ debug: true, compatibility: 'ie8' }, (details) => {
-      gutil.log(chalk.bold(chalk.gray('[ Minify Details ]')));
-      gutil.log(chalk.yellow(`${details.name}: ${Math.ceil(details.stats.originalSize / 1024)}kb`));
-      gutil.log(chalk.magenta(`Minified ${details.name} : ${Math.ceil(details.stats.minifiedSize / 1024)}kb`));
-    }))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(`${outputPath}/css/`)));
+gulp.task('sass-minify', () => {
+  gulp.src(`${assetPath}/sass/**/*.scss`)
+  .pipe(sass().on('error', sass.logError))
+  .pipe(cleanCSS({ debug: true, compatibility: 'ie8' }, (details) => {
+    gutil.log(chalk.bold(chalk.gray('[ Minify Details ]')));
+    gutil.log(chalk.yellow(`${details.name}: ${Math.ceil(details.stats.originalSize / 1024)}kb`));
+    gutil.log(chalk.magenta(`Minified ${details.name} : ${Math.ceil(details.stats.minifiedSize / 1024)}kb`));
+  }))
+  .pipe(rename({ suffix: '.min' }))
+  .pipe(gulp.dest(`${outputPath}/css/`));
+});
 
 gulp.task('watch-sass', ['sass-compile'], (done) => {
   browserSync.reload();
