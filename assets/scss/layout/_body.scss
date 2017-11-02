@@ -1,0 +1,17 @@
+:global {
+  .l-pg {
+    &--width {
+      background: tomato;
+      margin: 0 $grid_gutter;
+      @include query($tablet_trigger) {
+        margin: auto;
+        background: green;
+        width: $tablet_trigger;
+      }
+      @include query($desktop_trigger) {
+        background: yellow;
+        width: $desktop_trigger;
+      }
+    }
+  }
+}
