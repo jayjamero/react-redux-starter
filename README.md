@@ -1,25 +1,27 @@
-# React Redux Starter Full
-This is a boiler plate React/Redux project that contains build tools for React, Sass and TDD based workflows.
+# React Frontend Framework
 
 ## Installation Steps
 1. `npm install`
-2. `npn run-script build`
+2. `npn run build`
 
-## Preview
-1. `npm start`
+## Development
+* `npm run dev` - Watches directory and compiles assets
+* `npm run dev:debug` - More verbose messages
 
-## Extras
-* `npm run-script serve` - For development purposes
-* `npm run-script test` - Runs mocha tests
-* `npm run-script dist` - Create a release candidate
+## Showcase
+* `npm start` - Runs a live server with hot reloading (static index file)
 
-## TODO - The road to Isomorphism
+## Tests
+* `npm run test` - Runs Jest tests
+* `npm run test:coverage` - Runs Jest tests (exports coverage report)
 
-Aiming to be an *isomorphic* starter framework
+## Deployment
+* `npm run build:release` - Create a release candidate
 
-1. Add `istanbul` for test code coverage
-2. Migrate `gulp` build tasks to `webpack`
-3. Add `webpack` frontend server
+### TODO
+1. ~~Add `istanbul` for test code coverage~~ - Using `jest --coverage` now
+2. ~~Migrate `gulp` build tasks to `webpack`~~
+3. ~~Add `webpack` build tool~~
 4. Add `node` backend server
 5. Add `express`
 6. Add `mongodb`
