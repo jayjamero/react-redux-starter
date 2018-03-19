@@ -7,7 +7,10 @@ const DEFAULT_APP_SCHEMA = {
 export default function (state = DEFAULT_APP_SCHEMA, action) {
   switch (action.type) {
     case GENERIC_ACTION:
-      return Object.assign({}, state, { genericAction: action.payload })
+      return {
+        ...state,
+        genericAction: action.payload,
+      }
     default:
       return state
   }
