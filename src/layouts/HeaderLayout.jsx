@@ -11,7 +11,7 @@ function HeaderLayout() {
     <header className="l-hd">
       <div dangerouslySetInnerHTML={{ __html: BROWSE_HAPPY }} />
       <div className="l-pg l-pg--width">
-        <h1>Kogan Internet</h1>
+        <h1>React Redux Starter</h1>
       </div>
     </header>
   )
