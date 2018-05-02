@@ -89,6 +89,20 @@ const config = (env, argv) => ({
           { loader: 'sass-loader', options: { sourceMap: argv.mode === 'production' } },
         ],
       },
+      // Rules for images
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        include: [path.resolve(__dirname, 'assets/img')],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              publicPath: '/public/assets/img/',
+            },
+          },
+        ],
+      },
     ],
   },
   optimization: {
