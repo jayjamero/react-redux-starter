@@ -1,7 +1,8 @@
 // load the needed node modules
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const webpack = require('webpack')
+import path from 'path'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import webpack from 'webpack'
+import 'babel-polyfill'
 
 const extractSass = new MiniCssExtractPlugin({
   filename: '[name].css',
