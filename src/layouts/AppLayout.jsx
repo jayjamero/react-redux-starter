@@ -1,11 +1,10 @@
-// import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import HeaderLayout from './HeaderLayout'
-import BodyLayout from './BodyLayout'
-import FooterLayout from './FooterLayout'
-import GenericContainer from '../containers/GenericContainer'
+import HeaderLayout from 'layouts/HeaderLayout'
+import BodyLayout from 'layouts/BodyLayout'
+import FooterLayout from 'layouts/FooterLayout'
+import GenericContainer from 'containers/GenericContainer'
 
 // Container is a react component that gets bonded with application state
 class AppLayout extends PureComponent {

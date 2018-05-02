@@ -22,7 +22,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js",".jsx"]
+        "paths": ["src"]
       }
     },
     "import/ignore": [
@@ -30,12 +30,9 @@
       "\\.(scss|css|svg|json)$"
     ],
     "react": {
-      // Regex for Component Factory to use, default to "createClass"
       "createClass": "createClass",
-      // Pragma to use, default to "React"
       "pragma": "React",
-      // React version, default to the latest React stable release
-      "version": "16.0"
+      "version": "16.3"
     }
   },
   "rules": {
@@ -50,7 +47,7 @@
     "react/forbid-prop-types": [0, { "forbid": [] }],
     "react/jsx-pascal-case": [2, { "allowAllCaps": true }],
     "react/no-find-dom-node": 1,
-    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }]
   },
   "extends": [ "eslint:recommended", "plugin:react/recommended", "airbnb"]
 }
