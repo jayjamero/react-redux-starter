@@ -1,2 +1,2 @@
-export const ENABLE_DEV_TOOLS = true // This can be set true or false depending on environmnet
+export const ENABLE_DEV_TOOLS = process.env.NODE_ENV === 'development' || false
 export const SAMPLE_KEY = 12345

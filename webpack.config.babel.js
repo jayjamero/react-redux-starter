@@ -42,11 +42,12 @@ const config = (env, argv) => ({
   plugins: [
     extractSass,
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV_STRING': argv.mode === 'production' ? '"development"' : '"production"',
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.DEBUG': JSON.stringify(process.env.DEBUG),
-      'process.env.BROWSER': true,
-      __DEV__: argv.mode === 'production',
+      'process.env': {
+        NODE_ENV_STRING: argv.mode === 'production' ? '"development"' : '"production"',
+        NODE_ENV: JSON.stringify(argv.mode),
+        DEBUG: JSON.stringify(process.env.DEBUG),
+        BROWSER: true,
+      },
     }),
   ],
   module: {

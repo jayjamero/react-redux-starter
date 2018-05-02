@@ -17,7 +17,7 @@ const consoleStyle = 'background: #555; color: #bada55'
 
 let devToolsExtension = f => f // Initialise as an empty function
 
-if (ENABLE_DEV_TOOLS === true) {
+if (ENABLE_DEV_TOOLS) {
   console.log('%c_____ PROJECT HAS REDUX TOOLS ENABLED _____', consoleStyle)
   devToolsExtension = window.devToolsExtension
     ? window.devToolsExtension()
