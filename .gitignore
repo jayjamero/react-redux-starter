@@ -1,7 +1,7 @@
 dist
 node_modules
 coverage
-build/public/assets
+build/public/
 # OS generated files #
 ######################
 .DS_Store
