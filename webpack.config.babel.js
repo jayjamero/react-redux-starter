@@ -17,7 +17,7 @@ const config = (env, argv) => ({
     path.join(__dirname, 'src/index.jsx'),
     path.join(__dirname, 'assets/scss/main.scss'),
   ],
-  devtool: 'inline-source-map',
+  devtool: argv.mode === 'production' ? '' : 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'build/public/assets'),
     publicPath: '/build/public/assets',
