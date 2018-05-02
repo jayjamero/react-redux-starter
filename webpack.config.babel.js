@@ -4,8 +4,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
 import 'babel-polyfill'
 
-const extractSass = new MiniCssExtractPlugin({
-  filename: '[name].css',
+const extractCss = new MiniCssExtractPlugin({
+  filename: 'css/[name].css',
   chunkFilename: '[id].css',
 })
 
@@ -20,10 +20,10 @@ const config = (env, argv) => ({
   devtool: argv.mode === 'production' ? '' : 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'build/public/assets'),
-    publicPath: '/build/public/assets',
+    publicPath: '/public/assets',
     pathinfo: argv.mode === 'production',
-    filename: '[name].js?[hash:8]',
-    chunkFilename: '[name].js?[hash:8][chunkhash:8]',
+    filename: 'js/[name].js?[hash:8]',
+    chunkFilename: 'js/[name].js?[hash:8][chunkhash:8]',
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
@@ -40,7 +40,7 @@ const config = (env, argv) => ({
     extensions: ['.js', '.jsx'],
   },
   plugins: [
-    extractSass,
+    extractCss,
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV_STRING: argv.mode === 'production' ? '"development"' : '"production"',
