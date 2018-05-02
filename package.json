@@ -66,7 +66,8 @@
     "dev:debug": "webpack --config=./webpack.config.babel.js --watch --hot --progress --debug",
     "build": "webpack --config=./webpack.config.babel.js --progress --mode=development",
     "build:release": "webpack --config=./webpack.config.babel.js --progress --optimize-minimize --mode=production",
-    "start": "cd build && live-server --port=4321 --entry-file=index.html"
+    "server": "cd build && live-server --port=4321 --entry-file=index.html",
+    "start": "npm run build:release && npm run server"
   },
   "jest": {
     "setupFiles": [
