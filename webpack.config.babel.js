@@ -20,7 +20,7 @@ const config = (env, argv) => ({
   devtool: argv.mode === 'production' ? '' : 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'build/public/assets'),
-    publicPath: '/public/assets',
+    publicPath: '/public/assets/',
     pathinfo: argv.mode === 'production',
     filename: 'js/[name].js?[hash:8]',
     chunkFilename: 'js/[name].js?[hash:8][chunkhash:8]',
@@ -33,6 +33,7 @@ const config = (env, argv) => ({
     // Keep in sync with .eslintrc
     modules: [
       path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'assets'),
       path.resolve(__dirname, 'assets/scss'),
       path.resolve(__dirname, 'assets/img'),
       path.resolve(__dirname, 'node_modules'),
@@ -97,8 +98,7 @@ const config = (env, argv) => ({
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              publicPath: '/public/assets/img/',
+              name: 'img/[name].[ext]',
             },
           },
         ],
