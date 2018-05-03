@@ -71,7 +71,6 @@ const config = (env, argv) => ({
         test: /\.(scss|sass)$/,
         include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'assets/scss')],
         use: [
-          { loader: 'style-loader', options: { sourceMap: argv.mode === 'production' } },
           { loader: MiniCssExtractPlugin.loader },
           // Process internal/project styles (from assets/scss folder)
           {
@@ -79,15 +78,15 @@ const config = (env, argv) => ({
             options: {
               // CSS Loader https://github.com/webpack/css-loader
               importLoaders: 2,
-              sourceMap: argv.mode === 'production',
+              sourceMap: argv.mode === 'development',
               // CSS Modules https://github.com/css-modules/css-modules
               modules: true,
-              localIdentName: argv.mode === 'production'
+              localIdentName: argv.mode === 'development'
                 ? '[name]-[local]-[hash:base64:5]'
                 : '[hash:base64:5]',
             },
           },
-          { loader: 'sass-loader', options: { sourceMap: argv.mode === 'production' } },
+          { loader: 'sass-loader', options: { sourceMap: argv.mode === 'development' } },
         ],
       },
       // Rules for images

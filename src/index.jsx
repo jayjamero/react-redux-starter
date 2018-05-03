@@ -7,10 +7,10 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import ReduxPromise from 'redux-promise' // middleware
 import ReduxThunk from 'redux-thunk' // used to fire other actions sequentially
 
-import AppLayout from './layouts/AppLayout'
-import reducers from './reducers'
+import AppLayout from 'layouts/AppLayout'
+import reducers from 'reducers'
 
-import { ENABLE_DEV_TOOLS } from './globals/constants'
+import { ENABLE_DEV_TOOLS } from 'globals/constants'
 
 const middleware = [ReduxThunk, ReduxPromise]
 const consoleStyle = 'background: #555; color: #bada55'
@@ -33,7 +33,7 @@ const store = createStore(reducers, middlewareComposed)
 // Render react when document is ready.
 ReactDOM.render(
   <Provider store={store}>
-    <AppLayout store={store} />
+    <AppLayout />
   </Provider>,
   document.querySelector('.app')
 )

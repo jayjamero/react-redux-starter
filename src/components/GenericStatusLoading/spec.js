@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import GenericStatusLoading from './index.jsx'
+import GenericStatusLoading from './index'
 
 // TODO Sample mock test for now
 describe('<GenericStatusLoading />', () => {

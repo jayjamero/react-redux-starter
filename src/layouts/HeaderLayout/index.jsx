@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './styles.scss'
 
 function HeaderLayout() {
   const BROWSE_HAPPY = `<!--[if lte IE 8]>
@@ -8,7 +9,7 @@ function HeaderLayout() {
     </p>
   <![endif]-->`
   return (
-    <header className="l-hd">
+    <header className={styles.header}>
       <div dangerouslySetInnerHTML={{ __html: BROWSE_HAPPY }} />
       <div className="l-pg l-pg--width">
         <h1>React Redux Starter</h1>

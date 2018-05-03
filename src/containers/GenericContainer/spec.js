@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import GenericContainer from './index.jsx'
+import GenericContainer from './index'
 
 // TODO Sample mock test for now
 describe('<GenericContainer />', () => {
