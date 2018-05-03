@@ -21,7 +21,7 @@ const config = (env, argv) => ({
   output: {
     path: path.resolve(__dirname, 'build/public/assets'),
     publicPath: '/public/assets/',
-    pathinfo: argv.mode === 'production',
+    pathinfo: argv.mode === 'development',
     filename: 'js/[name].js?[hash:8]',
     chunkFilename: 'js/[name].js?[hash:8][chunkhash:8]',
     // Point sourcemap entries to original disk location (format as URL on Windows)
@@ -107,21 +107,19 @@ const config = (env, argv) => ({
   },
   optimization: {
     splitChunks: {
+      chunks: 'all',
       cacheGroups: {
         js: {
           test: /\.js$/,
           name: 'main',
-          chunks: 'all',
         },
         css: {
           test: /\.(css|sass|scss)$/,
           name: 'main',
-          chunks: 'all',
         },
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all',
         },
       },
     },
