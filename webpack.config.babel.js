@@ -76,11 +76,7 @@ const config = (env, argv) => ({
           {
             loader: 'css-loader',
             options: {
-              // CSS Loader https://github.com/webpack/css-loader
-              importLoaders: 2,
               sourceMap: argv.mode === 'development',
-              // CSS Modules https://github.com/css-modules/css-modules
-              modules: true,
               localIdentName: argv.mode === 'development'
                 ? '[name]-[local]-[hash:base64:5]'
                 : '[hash:base64:5]',
