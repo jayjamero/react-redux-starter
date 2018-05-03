@@ -1,3 +1,4 @@
+/* Color setup */
 $primary_color: #ed193a;
 $primary_color--contrast: darken($primary_color, 10%);
 $secondary_color: #518dd6;
@@ -6,11 +7,12 @@ $border_color: #e1e1e1;
 $text_color: #555;
 $background_color: #eee;
 
-$images : "images";
+/* Paths */
+$public_asset_path: "/public/assets";
+$base_img_path: "#{$public_asset_path}/img";
 
-// when does the desktop layout kick in. here its binary, either below this value of above, no tablet design
+/* Mobile first - so base style is implied as mobile! */
 $desktop_trigger : 980px;
 $tablet_trigger : 640px;
-$mobile_trigger : 320px;
 
-$grid_gutter : 30px;
+$grid_gutter : 24px;
