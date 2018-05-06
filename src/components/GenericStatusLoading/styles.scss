@@ -10,7 +10,6 @@
     position: relative;
   }
   .loader {
-    background-color: #ffffff;
     font-size: 10px;
     margin: 80px auto;
     position: relative;
@@ -26,7 +25,9 @@
       width: 2.5em;
       height: 2.5em;
       animation-fill-mode: both;
-      animation: loadingAnimation 1.8s infinite ease-in-out;
+      :global {
+        animation: loadingAnimation 1.8s infinite ease-in-out;
+      }
     }
     // two of em
     &:before,
