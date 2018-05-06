@@ -2,17 +2,19 @@
 
 ## Installation Steps
 1. `npm install`
-2. `npn run build`
+2. `npm start`
 
 ## Development
+* `npm run build` - Compile and build the project in development mode (no watching)
 * `npm run dev` - Watches directory and compiles assets
-* `npm run dev:debug` - More verbose messages
 
 ## Showcase
-* `npm start` - Runs a live server with hot reloading (static index file)
+* `npm run server` - Runs a live server with hot reloading (does not compile JS)
+* `npm start` - Compiles a release build then runs a live server
 
 ## Tests
 * `npm run test` - Runs Jest tests
+* `npm run test:watch` - Automatically runs tests during dev
 * `npm run test:coverage` - Runs Jest tests (exports coverage report)
 
 ## Deployment
