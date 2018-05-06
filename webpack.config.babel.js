@@ -82,6 +82,7 @@ const config = (env, argv) => ({
                 : '[hash:base64:5]',
             },
           },
+          { loader: 'postcss-loader', options: { sourceMap: argv.mode === 'development' } },
           { loader: 'sass-loader', options: { sourceMap: argv.mode === 'development' } },
         ],
       },
