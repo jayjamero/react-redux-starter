@@ -52,11 +52,13 @@
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.8",
+    "react-hot-loader": "^4.3.4",
     "redux-mock-store": "^1.5.1",
     "sass-loader": "^7.0.1",
     "webpack": "^4.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-cli": "^2.1.2"
+    "webpack-cli": "^2.1.2",
+    "webpack-dev-server": "^3.1.5"
   },
   "scripts": {
     "test": "jest --config=jest.config.json",
@@ -66,7 +68,7 @@
     "dev:debug": "webpack --config=./webpack.config.babel.js --watch --hot --progress --debug",
     "build": "webpack --config=./webpack.config.babel.js --progress --mode=development",
     "build:release": "webpack --config=./webpack.config.babel.js --progress --optimize-minimize --mode=production",
-    "server": "cd build && live-server --port=4321 --entry-file=index.html",
+    "server": "webpack-dev-server --config=./webpack.config.babel.js --hotOnly --progress --mode=development",
     "start": "npm run build:release && npm run server"
   },
   "repository": {

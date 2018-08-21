@@ -1,6 +1,9 @@
 {
   "presets": [ "airbnb", "env", "react" ],
   "plugins": [
-    ["transform-class-properties", { "spec": true }]
+    [
+      "transform-class-properties", { "spec": true },
+      "react-hot-loader/babel"
+    ]
   ]
 }

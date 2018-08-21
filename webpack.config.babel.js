@@ -18,6 +18,14 @@ const config = (env, argv) => ({
     path.join(__dirname, 'assets/scss/main.scss'),
   ],
   devtool: argv.mode === 'production' ? '' : 'inline-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'build/'),
+    compress: true,
+    inline: true,
+    hot: true,
+    stats: 'errors-only',
+    port: 9000,
+  },
   output: {
     path: path.resolve(__dirname, 'build/public/assets'),
     publicPath: '/public/assets/',
@@ -50,6 +58,7 @@ const config = (env, argv) => ({
         BROWSER: true,
       },
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     // Make missing exports an error instead of warning
