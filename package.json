@@ -35,6 +35,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babelify": "^8.0.0",
     "clean-webpack-plugin": "^0.1.17",
+    "css-hot-loader": "^1.4.2",
     "css-loader": "^0.28.7",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
@@ -69,7 +70,7 @@
     "build": "webpack --config=./webpack.config.babel.js --progress --mode=development",
     "build:release": "webpack --config=./webpack.config.babel.js --progress --optimize-minimize --mode=production",
     "server": "webpack-dev-server --config=./webpack.config.babel.js --hotOnly --progress --mode=development",
-    "start": "npm run build:release && npm run server"
+    "start": "webpack-dev-server --config=./webpack.config.babel.js --mode=production"
   },
   "repository": {
     "type": "git"

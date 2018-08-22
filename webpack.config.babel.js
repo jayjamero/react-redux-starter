@@ -79,7 +79,7 @@ const config = (env, argv) => ({
       {
         test: /\.(scss|sass)$/,
         include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'assets/scss')],
-        use: [
+        use: ['css-hot-loader'].concat([
           { loader: MiniCssExtractPlugin.loader },
           // Process internal/project styles (from assets/scss folder)
           {
@@ -93,7 +93,7 @@ const config = (env, argv) => ({
           },
           { loader: 'postcss-loader', options: { sourceMap: argv.mode === 'development' } },
           { loader: 'sass-loader', options: { sourceMap: argv.mode === 'development' } },
-        ],
+        ]),
       },
       // Rules for images
       {
