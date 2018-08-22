@@ -27,4 +27,4 @@
 4. Add `node` backend server
 5. Add `express`
 6. Add `mongodb`
-7. Setup [Spriting with SASS and Compass](http://thesassway.com/intermediate/spriting-with-sass-and-compass "Spriting with Sass and Compass")
+7. Setup with docker
